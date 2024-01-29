@@ -6,20 +6,13 @@ function App() {
   const [fullName, setFullName] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (/^[A-Za-z]*$/.test(firstName) && /^[A-Za-z]*$/.test(lastName)) {
-      setFullName(`${firstName} ${lastName}`);
-      setSubmitted(true);
-    } else {
-      alert('Please enter only letters for first and last name.');
-    }
-  };
+
 
   return (
     <div>
+      
       <h1>Full Name Display</h1>
-      <form onSubmit={handleSubmit}>
+      <form >
         <label htmlFor="firstName">First Name:</label>
         <input 
           type="text" 
@@ -39,7 +32,7 @@ function App() {
           required 
         /><br /><br />
         <button type="submit">Submit</button>
-      </form>
+     
 
       {submitted && (
         <div>
@@ -47,6 +40,7 @@ function App() {
           
         </div>
       )}
+      </form>
     </div>
   );
 }
