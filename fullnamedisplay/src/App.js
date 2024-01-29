@@ -8,7 +8,7 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (firstName.match(/^[A-Za-z]+$/) && lastName.match(/^[A-Za-z]+$/)) {
+    if (/^[A-Za-z]*$/.test(firstName) && /^[A-Za-z]*$/.test(lastName)) {
       setFullName(`${firstName} ${lastName}`);
       setSubmitted(true);
     } else {
