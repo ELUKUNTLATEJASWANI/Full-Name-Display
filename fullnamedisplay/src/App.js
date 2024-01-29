@@ -8,17 +8,19 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (firstName && lastName) {
+    if (firstName.match(/^[A-Za-z]+$/) && lastName.match(/^[A-Za-z]+$/)) {
       setFullName(`${firstName} ${lastName}`);
       setSubmitted(true);
+    } else {
+      alert('Please enter only letters for first and last name.');
     }
   };
 
   return (
-    <div className='font'>
+    <div>
+      <h1>Full Name Display</h1>
       <form onSubmit={handleSubmit}>
-        <h1>Full Name Display</h1>
-        <label htmlFor="firstName">First Name: </label>
+        <label htmlFor="firstName">First Name:</label>
         <input 
           type="text" 
           id="firstName" 
@@ -27,7 +29,7 @@ function App() {
           onChange={(e) => setFirstName(e.target.value)} 
           required 
         /><br />
-        <label htmlFor="lastName">Last Name: </label>
+        <label htmlFor="lastName">Last Name:</label>
         <input 
           type="text" 
           id="lastName" 
@@ -41,8 +43,8 @@ function App() {
 
       {submitted && (
         <div>
-          <p>Full Name:{fullName}</p>
-          {/* <p>{fullName}</p> */}
+          <h2>Full Name: {fullName}</h2>
+          
         </div>
       )}
     </div>
